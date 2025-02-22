@@ -1,0 +1,12 @@
+@import "../../assets/styles/variables.scss";
+
+.button {
+  background: $button-gradient;
+  color: white;
+
+  font-size: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,129 @@
+@import "../../assets/styles/variables";
+
+.sidebar {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 237px;
+  height: 100vh;
+  background-color: #eef6ff;
+  color: white;
+  padding-right: 17px;
+  padding-bottom: 20px;
+  overflow-y: auto;
+  transition: transform 0.3s ease; /* Добавлено для анимации */
+  z-index: 100;
+
+  /* Кнопка-бургер */
+  &__burger {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    color: white;
+    background-color: #1b2124;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 101;
+    display: none;
+  }
+
+  /* Логотип */
+  &__logo {
+    margin: 24px auto 60px;
+  }
+
+  &__nav {
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin: 15px 0;
+
+        .sidebar__nav-button {
+          background: white;
+          color: $dark-gray;
+          position: relative;
+          border-radius: 0 8px 8px 0;
+          width: 100%;
+          padding: 12px 29px 12px 50px;
+          font-size: 14px;
+
+          &:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 17px;
+            height: 36px;
+            transform: translate(-50%, -50%);
+            background-color: $dark-gray;
+            border-radius: 4px;
+          }
+        }
+
+        .sidebar__nav-button--active {
+          color: $button-color;
+          &:before {
+            background-color: $button-color;
+          }
+        }
+      }
+    }
+  }
+
+  &__footer {
+    max-width: 150px;
+    color: $dark-gray;
+    margin: 0 auto;
+    margin-top: auto;
+
+    &-text {
+      text-align: start;
+      margin-bottom: 40px;
+
+      p {
+        margin-bottom: 40px;
+        font-size: 16px;
+      }
+
+      a {
+        font-size: 16px;
+        white-space: nowrap;
+        color: $dark-gray;
+      }
+    }
+  }
+
+  /* Скрытие сайдбара и бургер на мобильных устройствах */
+  @media (max-width: 768px) {
+    transform: translateX(-100%); /* Сайдбар скрыт по умолчанию */
+
+    &--open {
+      transform: translateX(0); /* Сайдбар открывается */
+    }
+
+    /* Показ кнопки-бургера */
+    &__burger {
+      display: block;
+    }
+  }
+
+  /* Оверлей для затемнения контента при открытом сайдбаре */
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 99;
+  }
+}

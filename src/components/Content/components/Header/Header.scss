@@ -1,0 +1,59 @@
+@import "../../../../assets/styles/variables";
+
+.header {
+  display: flex;
+  border-bottom: 1px solid $light-gray;
+  padding-bottom: 24px;
+  margin-bottom: 19px;
+
+  &__date {
+    margin-right: 56px;
+    position: relative;
+    color: $pimary-color;
+  }
+
+  &__day {
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 32px;
+    margin: 0;
+  }
+
+  &__month {
+    position: absolute;
+    bottom: 0px;
+
+    font-weight: 400;
+    font-size: 12px;
+    margin: 0;
+  }
+
+  &__tab {
+    margin: 0;
+    font-weight: 600;
+    line-height: 24px;
+    font-size: 20px;
+
+    @media (width <= 960px) {
+      font-size: 14px;
+    }
+  }
+
+  &__brand {
+    margin: 0;
+    margin-left: auto;
+    color: $dark-gray;
+    margin-right: 32px;
+    font-weight: 600;
+    line-height: 24px;
+    font-size: 20px;
+
+    @media (width <= 960px) {
+      font-size: 14px;
+    }
+  }
+
+  &__profile-icon {
+    align-self: center;
+  }
+}

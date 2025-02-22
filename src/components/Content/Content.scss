@@ -1,0 +1,11 @@
+.content {
+  margin-left: 237px;
+  padding: 31px 48px 40px 38px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease; /* Плавное изменение margin-left */
+
+  @media (max-width: 768px) {
+    margin-left: 0px;
+  }
+}
