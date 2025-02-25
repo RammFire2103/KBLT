@@ -1,15 +1,17 @@
-@import "../../../../assets/styles/variables";
+@use "../../../../assets/styles/variables";
+@use "../../../../assets/styles/mixins" as mixins;
 
 .tableWrapper {
   width: 100%;
-  overflow-x: auto; /* 📜 Горизонтальная прокрутка при необходимости */
+  overflow-x: auto;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 16px;
-  min-width: 600px; /* 🔒 Минимальная ширина для прокрутки */
+
+  @include mixins.font(800, 16px, 24px, "Montserrat");
+  min-width: 600px;
 
   th,
   td {
@@ -21,9 +23,15 @@
   .name-head {
     display: flex;
 
+    span {
+      display: flex;
+
+      @include mixins.center-flex();
+    }
+
     button {
       margin-left: 15px;
-      background: $light-gray;
+      background: variables.$light-gray;
     }
   }
 
@@ -32,11 +40,10 @@
   }
 
   th {
-    color: $dark-gray;
-    font-size: 20px;
-    font-weight: 600;
+    color: variables.$dark-gray;
+
+    @include mixins.font(600, 20px, 24px, "Montserrat");
     background-color: white;
-    font-weight: bold;
   }
 
   &__call {
@@ -45,23 +52,23 @@
 
   &__phone {
     min-width: 160px;
+    color: variables.$dark-gray;
   }
 
   &__name {
     max-width: 174px;
     min-width: 80px;
-    color: $pimary-color;
-    font-weight: 800;
+    color: variables.$pimary-color;
   }
 
   &__mail {
     min-width: 200px;
-    color: $light-gray;
+    color: variables.$light-gray;
   }
 
   &__address {
     min-width: 180px;
-    color: $light-gray;
+    color: variables.$light-gray;
   }
 }
 
@@ -75,8 +82,24 @@
     height: 40px;
     padding: 0;
     display: flex;
-    align-items: center;
-    justify-content: center;
+
+    @include mixins.center-flex();
     margin-right: 15px;
+  }
+}
+
+@media print {
+  .printable {
+    position: absolute;
+    top: 0;
+  }
+
+  .no-printable {
+    visibility: hidden;
+  }
+
+  .printable,
+  .printable * {
+    visibility: visible;
   }
 }

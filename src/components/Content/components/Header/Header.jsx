@@ -4,10 +4,12 @@ import Brand from "./Brand";
 import ProfileIcon from "./ProfileIcon";
 
 import "./Header.scss";
+import Burger from "./Burger";
 
 function Header() {
   return (
     <div className="header">
+      <Burger />
       <Date />
       <Tab />
       <Brand />

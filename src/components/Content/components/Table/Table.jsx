@@ -44,14 +44,19 @@ const Table = () => {
   return (
     <>
       <div className="tableWrapper">
-        <table className="table">
+        <table className="table printable">
           <thead>
             <tr>
               <th></th>
               <th>Телефон</th>
               <th className="name-head">
-                ФИО{" "}
-                <Button onClick={() => sortByFullName(employees)}>sort</Button>
+                <span>ФИО</span>{" "}
+                <Button
+                  className={"no-printable"}
+                  onClick={() => sortByFullName(employees)}
+                >
+                  {sorted ? "unsort" : "sort"}
+                </Button>
               </th>
               <th>Почта</th>
               <th>Адрес</th>
@@ -68,6 +73,7 @@ const Table = () => {
       <Pagination
         employeesPerPage={7}
         totalEmployees={employees.length}
+        currentPage={currentPage}
         paginate={paginate}
       />
     </>

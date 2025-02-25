@@ -1,8 +1,9 @@
-@import "../../../../assets/styles/variables";
+@use "../../../../assets/styles/variables";
+@use "../../../../assets/styles/mixins" as mixins;
 
 .table-controls {
   display: flex;
-  align-items: center;
+  @include mixins.center-flex();
   margin-bottom: 49px;
 
   &__tab {
@@ -23,24 +24,48 @@
 
   &__search-button {
     position: absolute;
-    right: 10px;
-    top: 50%;
-    padding: 0;
+    @include mixins.center-absolute(y);
 
+    right: 10px;
+    padding: 0;
     height: 32px;
     width: 32px;
-    background: $button-color;
+    background: variables.$button-color;
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transform: translate(0, -50%);
+    @include mixins.center-flex();
   }
 
   &__button {
+    content: "";
     margin-left: auto;
     height: 48px;
     padding: 14px 24px 14px 32px;
     box-sizing: border-box;
+  }
+
+  @media (max-width: 600px) {
+    flex-wrap: wrap;
+    row-gap: 15px;
+
+    &__tab {
+      flex-basis: 50%;
+      margin: 0;
+    }
+
+    &__search {
+      max-width: none;
+      order: 1;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 375px) {
+    justify-content: center;
+
+    &__button {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
   }
 }

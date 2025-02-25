@@ -1,24 +1,15 @@
-import { useState } from "react";
 import Logo from "./components/Logo";
 import NavButton from "./components/NavButton";
 import "./Sidebar.scss";
 import employees from "../../assets/employees.png";
 import Footer from "./components/Footer";
+import { useMyContext } from "../../App";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
+  const { isOpen, toggleSidebar } = useMyContext();
 
   return (
     <>
-      {/* Кнопка-бургер */}
-      <button className="sidebar__burger" onClick={toggleSidebar}>
-        ☰
-      </button>
-
       {/* Сайдбар */}
       <aside className={`sidebar ${isOpen ? "sidebar--open" : ""}`}>
         <Logo />

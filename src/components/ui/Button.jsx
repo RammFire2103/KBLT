@@ -1,11 +1,12 @@
 import "./Button.scss";
 import PropTypes from "prop-types";
 
-const Button = ({ children, variant, className, onClick = () => {} }) => {
+const Button = ({ children, disabled, className, onClick = () => {} }) => {
   return (
     <button
       onClick={() => onClick()}
-      className={`button button--${variant} ${className}`}
+      disabled={disabled}
+      className={`button ${className} ${disabled ? "button-disabled" : ""}`}
     >
       {children}
     </button>
@@ -14,7 +15,7 @@ const Button = ({ children, variant, className, onClick = () => {} }) => {
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.string,
+  disabled: PropTypes.bool,
   className: PropTypes.string,
   onClick: PropTypes.func,
 };

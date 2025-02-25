@@ -1,21 +1,20 @@
-@import "../../../../assets/styles/variables";
+@use "../../../../assets/styles/mixins" as mixins;
+@use "../../../../assets/styles/variables";
 
 .header {
   display: flex;
-  border-bottom: 1px solid $light-gray;
+  border-bottom: 1px solid variables.$light-gray;
   padding-bottom: 24px;
   margin-bottom: 19px;
 
   &__date {
     margin-right: 56px;
     position: relative;
-    color: $pimary-color;
+    color: variables.$pimary-color;
   }
 
   &__day {
-    font-weight: 900;
-    font-size: 32px;
-    line-height: 32px;
+    @include mixins.font(900, 32px, 32px, "Montserrat");
     margin: 0;
   }
 
@@ -23,37 +22,94 @@
     position: absolute;
     bottom: 0px;
 
-    font-weight: 400;
-    font-size: 12px;
+    @include mixins.font(400, 12px, 1.5, "Montserrat");
+
     margin: 0;
   }
 
   &__tab {
     margin: 0;
-    font-weight: 600;
-    line-height: 24px;
-    font-size: 20px;
 
-    @media (width <= 960px) {
-      font-size: 14px;
-    }
+    @include mixins.font(600, 20px, 24px, "Montserrat");
   }
 
   &__brand {
     margin: 0;
     margin-left: auto;
-    color: $dark-gray;
     margin-right: 32px;
-    font-weight: 600;
-    line-height: 24px;
-    font-size: 20px;
 
-    @media (width <= 960px) {
-      font-size: 14px;
-    }
+    color: variables.$dark-gray;
+
+    @include mixins.font(600, 20px, 24px, "Montserrat");
   }
 
   &__profile-icon {
     align-self: center;
+  }
+
+  &__burger {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+  }
+
+  @media (max-width: 960px) {
+    &__brand {
+      @include mixins.font(600, 14px, 24px, "Montserrat");
+    }
+    &__tab {
+      @include mixins.font(600, 14px, 24px, "Montserrat");
+    }
+  }
+
+  @media (max-width: 790px) {
+    flex-wrap: wrap;
+    row-gap: 15px;
+
+    &__burger {
+      display: block;
+    }
+
+    &__burger-wrapper {
+      flex-basis: 33.33%;
+      order: -3;
+    }
+
+    &__date {
+      flex-basis: 33.33%;
+      margin: 0;
+      text-align: center;
+      order: -2;
+    }
+
+    &__month {
+      @include mixins.center-absolute(x);
+    }
+
+    &__profile-icon {
+      flex-basis: 33.33%;
+      text-align: end;
+      order: -1;
+    }
+
+    &__brand {
+      margin: 0;
+      margin-left: auto;
+    }
+  }
+
+  @media (max-width: 425px) {
+    &__tab {
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    &__brand {
+      flex-basis: 100%;
+      text-align: center;
+    }
   }
 }

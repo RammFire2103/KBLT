@@ -1,7 +1,8 @@
-@import "../../assets/styles/variables.scss";
+@use "../../assets/styles/variables.scss";
+@use "../../assets/styles/mixins" as mixins;
 
 .button {
-  background: $button-gradient;
+  background: variables.$button-gradient;
   color: white;
 
   font-size: 14px;
@@ -9,4 +10,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include mixins.font(700, 14px, 1.5, "Nunito");
+}
+
+.button-disabled {
+  opacity: 0.6;
+  cursor: default;
 }
