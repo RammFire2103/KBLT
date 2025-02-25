@@ -9,12 +9,14 @@ function Pagination({
 }) {
   const pageNumbers = [];
 
+  //Заполняем массив номерами для кнопок навигации
   for (let i = 1; i <= Math.ceil(totalEmployees / employeesPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return (
     <ul className="pagination">
+      {/* Заполняем кнопки для навигации */}
       {pageNumbers.map((number) => (
         <li key={number}>
           <Button

@@ -10,7 +10,6 @@ const Sidebar = () => {
 
   return (
     <>
-      {/* Сайдбар */}
       <aside className={`sidebar ${isOpen ? "sidebar--open" : ""}`}>
         <Logo />
         <nav className="sidebar__nav">

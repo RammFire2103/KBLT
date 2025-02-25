@@ -1,3 +1,4 @@
+// Цетрирование аболютного элемента с выбором оси
 @mixin center-absolute($axis: both) {
   position: absolute;
   @if $axis == both {
@@ -13,6 +14,7 @@
   }
 }
 
+// Шрифт
 @mixin font($weight: 400, $size: 16px, $line-height: 1.5, $family: "Nunito") {
   font-family: $family, sans-serif;
   font-weight: $weight;
@@ -20,7 +22,7 @@
   line-height: $line-height;
 }
 
-// Миксин для центрации элементов
+// Для центрации flex элементов
 @mixin center-flex($vertical: center, $horizontal: center) {
   display: flex;
   justify-content: $horizontal;

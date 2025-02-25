@@ -13,21 +13,23 @@ const Table = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [sorted, setSorted] = useState(false);
 
-  const lastEmployeeIndex = currentPage * 7;
-  const firstEmployeeIndex = lastEmployeeIndex - 7;
+  const lastEmployeeIndex = currentPage * 7; //id последнего работника на странице
+  const firstEmployeeIndex = lastEmployeeIndex - 7; //id перовго работника на странице
   const currentEmployees = employees.slice(
     firstEmployeeIndex,
     lastEmployeeIndex
-  );
+  ); //Получаем массив работников на странице
 
+  //Изменение текущей страницы
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Плавный скролл
+      behavior: "smooth",
     });
   };
 
+  //Сортировка по имени (Или вернуть исходный порядок)
   function sortByFullName(arr) {
     if (!sorted) {
       const sorted = [...arr].sort((a, b) =>
@@ -52,7 +54,7 @@ const Table = () => {
               <th className="name-head">
                 <span>ФИО</span>{" "}
                 <Button
-                  className={"no-printable"}
+                  className="no-printable"
                   onClick={() => sortByFullName(employees)}
                 >
                   {sorted ? "unsort" : "sort"}
@@ -63,6 +65,7 @@ const Table = () => {
             </tr>
           </thead>
           <tbody>
+            {/* Заполняем таблицу работников */}
             {currentEmployees.map((item) => (
               <Employee key={item.id} employee={item} />
             ))}

@@ -1,7 +1,10 @@
 import { useMyContext } from "../../../../App";
 import Button from "../../../ui/Button";
 
+//Кнопка для бургерного меню
+
 function Burger() {
+  //Открытие сайдбара
   const { toggleSidebar } = useMyContext();
 
   return (
