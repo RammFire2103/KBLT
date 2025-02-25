@@ -88,7 +88,8 @@
     }
 
     &__month {
-      @include mixins.center-absolute(x);
+      @include mixins.center-absolute(both);
+      top: 30px;
     }
 
     &__profile-icon {
